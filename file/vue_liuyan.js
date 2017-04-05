@@ -6,7 +6,8 @@ window.onload=function(){
 			myData:myjson,
 			username:'',
 			age:'',
-			nowIndex:-100
+			nowIndex:-100,
+			textDel:''
 		},
 		methods:{
 			add:function(){
@@ -35,9 +36,16 @@ window.onload=function(){
 			},
 			deleted:function(n){
 				if(n!='all'&&typeof(n)=='number'){
-					this.myData.splice(n,1)
+					this.myData.splice(n,1);
 				}else{
 					this.myData=[];
+				}
+			},
+			deleteText:function(t){
+				if(t=='all'){
+					this.textDel='全部删除';	
+				}else{
+					this.textDel='删除';
 				}
 			}
 		}
