@@ -38,11 +38,11 @@
 				<td>{{ index+1 }}</td>
 				<td>{{ item.name }}</td>
 				<td>{{ item.age }}</td>
-				<td><button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#layer" @click="nowIndex=index">删除</button></td>
+				<td><button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#layer" @click="nowIndex=index" @mousedown="deleteText(index)">删除</button></td>
 			</tr>
 			<tr v-show="myData.length!=0">
 				<td colspan="4" class="text-right">
-					<button class="but btn-danger btn-sm" @click="nowIndex='all'" data-toggle="modal" data-target="#layer">全部删除</button>
+					<button class="but btn-danger btn-sm" @click="nowIndex='all'" @mousedown="deleteText('all')" data-toggle="modal" data-target="#layer">全部删除</button>
 				</td>
 			</tr>
 			<tr v-show="myData.length==0">
@@ -57,7 +57,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-						<h4 class="modal-title">确认删除吗？</h4>
+						<h4 class="modal-title">确认{{ textDel }}吗？</h4>
 					</div>
 					<div class="modal=body text-right">
 					<br>
